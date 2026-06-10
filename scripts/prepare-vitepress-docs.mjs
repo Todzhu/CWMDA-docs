@@ -3,11 +3,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const sourceRoot = path.join(root, 'SeekSoulOnline_Document');
+const sourceRoot = path.join(root, 'CWMDA_Document');
 const docsRoot = path.join(root, 'docs');
 const guideRoot = path.join(docsRoot, 'guide');
 const publicRoot = path.join(docsRoot, 'public');
-const assetsRoot = path.join(publicRoot, 'assets', 'SeekSoulOnline_Document');
+const assetsRoot = path.join(publicRoot, 'assets', 'CWMDA_Document');
+const legacyAssetsRoot = path.join(publicRoot, 'assets', 'SeekSoulOnline_Document');
 const advancedRoot = path.join(docsRoot, 'advanced');
 const obsoleteAssetsRoot = path.join(docsRoot, 'assets');
 const remoteDocBase = 'https://seeksoul.online/cloudplatform-doc/zh/document/SeekSoulOnline_Document';
@@ -144,7 +145,7 @@ function normalizeMarkdown(markdown, depth) {
 
   for (const dir of directoryAssets) {
     const escaped = escapeRegExp(dir);
-    output = output.replace(new RegExp(`\\./${escaped}/`, 'g'), `/assets/SeekSoulOnline_Document/${dir}/`);
+    output = output.replace(new RegExp(`\\./${escaped}/`, 'g'), `/assets/CWMDA_Document/${dir}/`);
   }
 
   output = output.replace(/(?:\.\/|\.\.\/)SeekSoulOnline_guide\.src\//g, advancedPrefix);
@@ -173,6 +174,7 @@ async function resetGeneratedDocs() {
   await fs.rm(guideRoot, { recursive: true, force: true });
   await fs.rm(advancedRoot, { recursive: true, force: true });
   await fs.rm(assetsRoot, { recursive: true, force: true });
+  await fs.rm(legacyAssetsRoot, { recursive: true, force: true });
   await fs.rm(obsoleteAssetsRoot, { recursive: true, force: true });
   await fs.mkdir(guideRoot, { recursive: true });
   await fs.mkdir(advancedRoot, { recursive: true });
