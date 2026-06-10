@@ -1,0 +1,14 @@
+# Markdown处理脚本记录
+# 生成时间: 2025-07-16 14:23:14
+# 源文件: 123\云平台使用说明.md
+# 目标文件: 456\云平台使用说明.md
+# 图片目录: 456\SeekSoulOnline_guide.src
+
+# 处理过程中使用的Python命令:
+import re
+import requests
+from pathlib import Path
+# 读取原始Markdown: 123\云平台使用说明.md
+# 提取图片链接并下载到 456\SeekSoulOnline_guide.src
+# 更新图片链接
+# 保存结果到 456\云平台使用说明.md

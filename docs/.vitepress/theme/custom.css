@@ -1,0 +1,185 @@
+:root {
+  --vp-sidebar-width: 260px;
+  --vp-nav-height: 82px;
+  --vp-layout-max-width: 1660px;
+}
+
+.VPNavBarTitle {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border-right: 1px solid #e5ebf3;
+}
+
+.VPNavBarTitle .title {
+  height: var(--vp-nav-height);
+  justify-content: center;
+  padding: 10px 26px 12px;
+}
+
+.VPNavBarTitle .logo {
+  height: 58px;
+  max-height: 58px;
+  width: auto;
+  object-fit: contain;
+}
+
+.VPNavBarTitle.has-sidebar .title {
+  border-bottom: 1px solid #e8edf5;
+}
+
+.VPSidebar {
+  background: linear-gradient(180deg, #fbfcff 0%, #f5f8fd 100%);
+  border-right: 1px solid #e6ebf2;
+  scrollbar-width: thin;
+  scrollbar-color: #c5cfdd transparent;
+}
+
+.VPSidebar .curtain {
+  background: transparent;
+}
+
+.VPSidebarNav {
+  padding: 18px 18px 36px;
+}
+
+.VPSidebar::-webkit-scrollbar {
+  width: 7px;
+}
+
+.VPSidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.VPSidebar::-webkit-scrollbar-thumb {
+  background: #c5cfdd;
+  border-radius: 999px;
+}
+
+.VPSidebarItem.level-0 {
+  padding-bottom: 5px;
+}
+
+.VPSidebarItem .item {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  min-height: 38px;
+  padding: 0 12px;
+  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.VPSidebarItem .text {
+  color: #506176;
+  font-size: 14px;
+  line-height: 38px;
+}
+
+.VPSidebarItem .item:hover {
+  background: #eef5ff;
+  border-color: #dbe7fb;
+}
+
+.VPSidebarItem.is-active > .item {
+  background: linear-gradient(90deg, #e6f0ff 0%, #f1f6ff 100%);
+  border-color: #cfe0fb;
+  box-shadow: inset 3px 0 0 #2f6fed, 0 6px 16px rgba(47, 111, 237, 0.08);
+}
+
+.VPSidebarItem.is-active > .item .text {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+@media (max-width: 959px) {
+  :root {
+    --vp-nav-height: 64px;
+  }
+
+  .VPNavBarTitle .title {
+    justify-content: flex-start;
+    padding: 8px 16px;
+  }
+
+  .VPNavBarTitle .logo {
+    height: 42px;
+    max-height: 42px;
+  }
+}
+
+.VPDoc .content,
+.VPDoc .content-container {
+  max-width: 980px;
+}
+
+.vp-doc img {
+  display: block;
+  width: min(100%, 920px) !important;
+  max-width: 100%;
+  height: auto !important;
+  margin: 22px auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fff;
+  cursor: zoom-in;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+}
+
+.vp-doc img:hover {
+  border-color: #a9c5f7;
+  box-shadow: 0 12px 34px rgba(15, 23, 42, 0.14);
+  transform: translateY(-1px);
+}
+
+.vp-doc p > img:only-child {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.vp-doc .embedded-image img {
+  width: min(100%, 360px) !important;
+}
+
+.doc-image-preview {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: #0f172a;
+  cursor: zoom-out;
+}
+
+.doc-image-preview img {
+  max-width: min(96vw, 1680px);
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+  cursor: default;
+}
+
+.doc-image-preview-close {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.72);
+  color: #fff;
+  font-size: 30px;
+  line-height: 36px;
+  cursor: pointer;
+}
+
+.doc-image-preview-close:hover {
+  background: rgba(30, 41, 59, 0.94);
+}
+
+.doc-image-preview-open {
+  overflow: hidden;
+}

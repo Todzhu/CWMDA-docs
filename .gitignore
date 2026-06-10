@@ -1,0 +1,7 @@
+node_modules/
+docs/.vitepress/cache/
+docs/.vitepress/image-cache/
+docs/.vitepress/dist/
+.superpowers/
+docs/superpowers/
+output/
