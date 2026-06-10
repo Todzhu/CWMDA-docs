@@ -17,7 +17,7 @@ export default defineConfig({
     siteTitle: false,
     nav: [
       { text: '指南', link: '/guide/getting-started' },
-      { text: '平台入口', link: 'https://seeksoul.online/index.html#/sgvps/home' }
+      { text: '平台入口', link: 'https://cosmicdatahub.cwmda.com:9000/#/home' }
     ],
     search: {
       provider: 'local'
