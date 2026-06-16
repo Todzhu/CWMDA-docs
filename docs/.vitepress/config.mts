@@ -53,7 +53,8 @@ export default defineConfig({
       { text: '我的基因集', link: '/guide/my-genesets' },
       { text: '参数模板', link: '/guide/parameters' },
       { text: '个人信息', link: '/guide/user-info' },
-      { text: '个性化分析', link: '/guide/notebooks' }
+      { text: '个性化分析', link: '/guide/notebooks' },
+      { text: 'CosmicData Hub', link: '/guide/cosmicdata-hub' }
     ]
   }
 });

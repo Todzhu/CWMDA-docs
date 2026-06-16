@@ -31,7 +31,8 @@ const pages = [
   ['15_My_GeneSets.md', 'my-genesets.md'],
   ['16_Parameters.md', 'parameters.md'],
   ['17_User_Info.md', 'user-info.md'],
-  ['18_Notebooks.md', 'notebooks.md']
+  ['18_Notebooks.md', 'notebooks.md'],
+  ['19_CosmicData_Hub.md', 'cosmicdata-hub.md']
 ];
 
 const legacyPageLinks = new Map(
@@ -46,6 +47,8 @@ const directoryAssets = [
   '支持.src',
   '概述.src'
 ];
+
+directoryAssets.push('CosmicData_Hub.src');
 
 const homeRedirectContent = `---
 layout: page
@@ -146,6 +149,20 @@ function normalizeMarkdown(markdown, depth) {
   for (const dir of directoryAssets) {
     const escaped = escapeRegExp(dir);
     output = output.replace(new RegExp(`\\./${escaped}/`, 'g'), `/assets/CWMDA_Document/${dir}/`);
+  }
+
+  output = output.replace(/\bhref="(\/assets\/CWMDA_Document\/[^"]+)"/g, (_full, href) => {
+    return `:href="withBase('${href}')"`;
+  });
+
+  if (output.includes('withBase(') && !output.includes("from 'vitepress'")) {
+    const withBaseScript = `<script setup>\nimport { withBase } from 'vitepress';\n</script>\n\n`;
+    const frontmatterMatch = output.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n/);
+    if (frontmatterMatch) {
+      output = `${frontmatterMatch[0]}\n${withBaseScript}${output.slice(frontmatterMatch[0].length)}`;
+    } else {
+      output = `${withBaseScript}${output}`;
+    }
   }
 
   output = output.replace(/(?:\.\/|\.\.\/)SeekSoulOnline_guide\.src\//g, advancedPrefix);
