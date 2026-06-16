@@ -38,6 +38,7 @@ export default defineConfig({
       }
     },
     sidebar: [
+      { text: 'CosmicData Hub', link: '/guide/cosmicdata-hub' },
       { text: '开始分析', link: '/guide/getting-started' },
       { text: '基础分析', link: '/guide/basic-analysis' },
       { text: '细胞注释', link: '/guide/cell-annotation' },
@@ -51,10 +52,7 @@ export default defineConfig({
       { text: '我的数据', link: '/guide/datas' },
       { text: '我的数据库', link: '/guide/my-database' },
       { text: '我的基因集', link: '/guide/my-genesets' },
-      { text: '参数模板', link: '/guide/parameters' },
-      { text: '个人信息', link: '/guide/user-info' },
-      { text: '个性化分析', link: '/guide/notebooks' },
-      { text: 'CosmicData Hub', link: '/guide/cosmicdata-hub' }
+      { text: '参数模板', link: '/guide/parameters' }
     ]
   }
 });
